@@ -15,13 +15,12 @@ namespace Snake_Amina
 		public Point RandomFoodGenerator(Snake snake, Wall wall)
 		{
 			Random rnd = new Random(DateTime.Now.Millisecond);
-			int mod = 19;
-			int x = rnd.Next(mod);
-			int y = rnd.Next(mod);
+			int x = rnd.Next(39);
+			int y = rnd.Next(19);
 			while (true)
 			{
-				x = rnd.Next(mod);
-				y = rnd.Next(mod);
+				x = rnd.Next(39);
+				y = rnd.Next(19);
 				int b = 0;
 				for (int i = wall.body.Count - 1; i >= 0; --i)
 					if (x == wall.body[i].x && y == wall.body[i].y)
@@ -67,13 +66,13 @@ namespace Snake_Amina
 			{
 				File.Delete("food.xml");
 				FileStream fs = new FileStream("food.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-				XmlSerializer xs = new XmlSerializer(this.GetType());
+				XmlSerializer xs = new XmlSerializer(typeof(Food));
 				xs.Serialize(fs, this);
 				fs.Close();
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Exception: " + e.ToString());
+				Console.WriteLine("Exception: " + e);
 				Console.ReadKey();
 			}
 		}

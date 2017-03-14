@@ -60,7 +60,7 @@ namespace Snake_Amina
 			}
 			Console.CursorVisible = false;
 		}
-		public void Clear() //
+		public void Clear() 
 		{
 			foreach (Point p in body)
 			{
@@ -75,13 +75,13 @@ namespace Snake_Amina
 			{
 				File.Delete("snake.xml");
 				FileStream fs = new FileStream("snake.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-				XmlSerializer xs = new XmlSerializer(this.GetType());
+				XmlSerializer xs = new XmlSerializer(typeof(Snake));
 				xs.Serialize(fs, this);
 				fs.Close();
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Exception: " + e.ToString());
+				Console.WriteLine("Exception: " + e);
 				Console.ReadKey();
 			}
 		}

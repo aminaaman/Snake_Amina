@@ -2,12 +2,8 @@
 <Snake xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <body>
     <Point>
-      <x>18</x>
-      <y>3</y>
-    </Point>
-    <Point>
-      <x>17</x>
-      <y>3</y>
+      <x>10</x>
+      <y>6</y>
     </Point>
   </body>
   <sign>42</sign>

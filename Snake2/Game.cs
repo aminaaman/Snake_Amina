@@ -10,7 +10,7 @@ namespace Snake_Amina
 		public Snake snake;
 		public Wall wall;
 		public Food food;
-		int cnt = 0, lvl = 1;
+		int body_cnt = 0, lvl = 1;
 		public Game()
 		{
 			wall = new Wall("lvl1.txt");
@@ -22,9 +22,9 @@ namespace Snake_Amina
 			snake.Save();
 			wall.Save();
 			food.Save();
-			File.Delete("cnt_lvl.xml");
-			FileStream fs = new FileStream("cnt_lvl.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-			Point x = new Point(cnt, lvl);
+			File.Delete("current_lvl.xml");
+			FileStream fs = new FileStream("current_lvl.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+			Point x = new Point(body_cnt, lvl);
 			XmlSerializer xs = new XmlSerializer(typeof(Point));
 			xs.Serialize(fs, x);
 			fs.Close();
@@ -35,10 +35,10 @@ namespace Snake_Amina
 			snake.body.Remove(snake.body[0]);
 			wall = wall.Resume();
 			food = food.Resume();
-			FileStream fs = new FileStream("cnt_lvl.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+			FileStream fs = new FileStream("current_lvl.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
 			XmlSerializer xs = new XmlSerializer(typeof(Point));
 			Point x = (Point)xs.Deserialize(fs);
-			cnt = x.x;
+			body_cnt = x.x;
 			lvl = x.y;
 			fs.Close();
 			Console.Clear();
@@ -63,6 +63,14 @@ namespace Snake_Amina
 		{
 			while (true)
 			{
+				snake.Draw();
+				food.Draw();
+				Console.SetCursorPosition(50, 5);
+				Console.Write("Curent score: ");
+				Console.WriteLine(body_cnt);
+				Console.SetCursorPosition(55, 5);
+				Thread.Sleep(300);
+
 				snake.Clear();
 				if (MainClass.d == 1)
 					snake.Move(0, -1);
@@ -88,8 +96,8 @@ namespace Snake_Amina
 					food.Clear();
 					snake.body.Add(new Point(food.body[0].x, food.body[0].y));
 					food = new Food(snake, wall);
-					++cnt;
-					if (cnt % 5 == 0)
+					body_cnt++;
+					if (body_cnt % 5 == 0)
 					{
 						++lvl;
 						if (lvl <= 3)
@@ -106,13 +114,7 @@ namespace Snake_Amina
 						}
 					}
 				}
-				snake.Draw();
-				food.Draw();
-				Console.SetCursorPosition(50, 10);
-				Console.Write("Curent score: ");
-				Console.WriteLine(cnt);
-				Console.SetCursorPosition(55, 10);
-				Thread.Sleep(300);
+
 			}
 		}
 	}

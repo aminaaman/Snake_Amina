@@ -58,13 +58,13 @@ namespace Snake_Amina
 			{
 				File.Delete("wall.xml");
 				FileStream fs = new FileStream("wall.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-				XmlSerializer xs = new XmlSerializer(this.GetType());
+				XmlSerializer xs = new XmlSerializer(typeof(Wall));
 				xs.Serialize(fs, this);
 				fs.Close();
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Exception: " + e.ToString());
+				Console.WriteLine("Exception: " + e);
 				Console.ReadKey();
 			}
 		}

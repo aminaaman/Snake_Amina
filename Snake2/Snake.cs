@@ -12,7 +12,7 @@ namespace Snake_Amina
 
 		public Snake()
 		{
-			sign = '*';
+			sign = 'o';
 			body = new List <Point>();
 			body.Add(new Point(10, 10));
 			color = ConsoleColor.Yellow;

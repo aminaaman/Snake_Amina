@@ -65,10 +65,22 @@ namespace Snake_Amina
 			{
 				snake.Draw();
 				food.Draw();
+				Console.SetCursorPosition(48, 4);
+				Console.ForegroundColor = ConsoleColor.Red;
+				Console.Write("= CURRENT MODE =");
+
 				Console.SetCursorPosition(50, 5);
+				Console.ForegroundColor = ConsoleColor.Yellow;
 				Console.Write("Your score: ");
 				Console.WriteLine(body_cnt);
 				Console.SetCursorPosition(55, 5);
+
+				Console.SetCursorPosition(50, 6);
+				Console.Write("Your level: ");
+				Console.ForegroundColor = ConsoleColor.Yellow;
+				Console.WriteLine(lvl);
+				Console.SetCursorPosition(55, 6);
+
 				Thread.Sleep(300);
 
 				snake.Clear();

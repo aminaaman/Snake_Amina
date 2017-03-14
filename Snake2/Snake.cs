@@ -19,7 +19,7 @@ namespace Snake_Amina
 		}
 		public void Move(int dx, int dy)
 		{
-			for (int i = body.Count - 1; i > 0; --i)
+			for (int i = body.Count - 1; i > 0; i--)
 			{
 				body[i].x = body[i - 1].x;
 				body[i].y = body[i - 1].y;
@@ -37,14 +37,14 @@ namespace Snake_Amina
 		}
 		public bool SnakeInSnake()
 		{
-			for (int i = body.Count - 1; i > 0; --i)
+			for (int i = body.Count - 1; i > 0; i--)
 				if (body[0].x == body[i].x && body[0].y == body[i].y)
 					return true;
 			return false;
 		}
 		public bool SnakeInWall(Wall wall)
 		{
-			for (int i = wall.body.Count - 1; i >= 0; --i)
+			for (int i = wall.body.Count - 1; i >= 0; i--)
 				if (body[0].x == wall.body[i].x && body[0].y == wall.body[i].y)
 					return true;
 			return false;

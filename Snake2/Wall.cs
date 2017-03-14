@@ -20,7 +20,7 @@ namespace Snake_Amina
 			body = new List<Point>();
 			StreamReader sr = new StreamReader(FileName);
 			int n = int.Parse(sr.ReadLine());
-			for (int i = 0; i < n; ++i)
+			for (int i = 0; i < n; i++)
 			{
 				string s = sr.ReadLine();
 				for (int j = 0; j < s.Length; j++)

@@ -99,7 +99,7 @@ namespace Snake_Amina
 					body_cnt++;
 					if (body_cnt % 5 == 0)
 					{
-						++lvl;
+						lvl++;
 						if (lvl <= 3)
 						{
 							if (lvl == 2)

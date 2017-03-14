@@ -2,8 +2,8 @@
 <Food xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <body>
     <Point>
-      <x>34</x>
-      <y>17</y>
+      <x>21</x>
+      <y>10</y>
     </Point>
   </body>
   <sign>36</sign>

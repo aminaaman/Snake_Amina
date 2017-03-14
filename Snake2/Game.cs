@@ -17,7 +17,7 @@ namespace Snake_Amina
 			snake = new Snake();
 			food = new Food(snake, wall);
 		}
-		void Save()
+		public void Save()
 		{
 			snake.Save();
 			wall.Save();
@@ -29,7 +29,7 @@ namespace Snake_Amina
 			xs.Serialize(fs, x);
 			fs.Close();
 		}
-		void Resume()
+		public void Resume()
 		{
 			snake = snake.Resume();
 			snake.body.Remove(snake.body[0]);
@@ -45,7 +45,7 @@ namespace Snake_Amina
 			food.Draw();
 			wall.Draw();
 		}
-		bool GameOver()
+		public bool GameOver()
 		{
 			if (snake.SnakeInWall(wall))
 				return true;
@@ -53,7 +53,7 @@ namespace Snake_Amina
 				return true;
 			return false;
 		}
-		bool CanEat()
+		public bool CanEat()
 		{
 			if (snake.body[0].x == food.body[0].x && snake.body[0].y == food.body[0].y)
 				return true;
@@ -66,7 +66,7 @@ namespace Snake_Amina
 				snake.Draw();
 				food.Draw();
 				Console.SetCursorPosition(50, 5);
-				Console.Write("Curent score: ");
+				Console.Write("Your score: ");
 				Console.WriteLine(body_cnt);
 				Console.SetCursorPosition(55, 5);
 				Thread.Sleep(300);
